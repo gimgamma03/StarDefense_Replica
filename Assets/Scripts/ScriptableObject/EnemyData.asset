@@ -15,22 +15,22 @@ MonoBehaviour:
   enemies:
   - enemyName: Enemy01
     maxHp: 10
-    moveSpeed: 0.5
+    moveSpeed: 1
     enemySprite: {fileID: 5978898516894778253, guid: 17c558ddb31742c42894aa507b18c308,
       type: 3}
   - enemyName: Enemy02
     maxHp: 10
-    moveSpeed: 0.5
+    moveSpeed: 1.2
     enemySprite: {fileID: 1111546806721587337, guid: 0c6b4087be1c8984989b77955f1cc287,
       type: 3}
   - enemyName: Enemy03
     maxHp: 10
-    moveSpeed: 0.5
+    moveSpeed: 0.9
     enemySprite: {fileID: -7068613016846842766, guid: b2aa4dabd5098a44d9db709d0d3c77f6,
       type: 3}
   - enemyName: Enemy04
     maxHp: 10
-    moveSpeed: 0.5
+    moveSpeed: 1
     enemySprite: {fileID: -6336752053224900323, guid: 11fa604a619fc47459a93991335e128a,
       type: 3}
   prefab: {fileID: 3180232526750230364, guid: d40d6d4f147ee6145852a48b33c8f49d, type: 3}

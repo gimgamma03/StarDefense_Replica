@@ -69,8 +69,7 @@ public class TowerManager : Singleton<TowerManager>
         BaseTowerUnit tower = towersByCell[cellPos];
 
         // 등급 리스트에서도 제거
-        if (towersByGrade.ContainsKey(tower.grade))
-            towersByGrade[tower.grade].Remove(tower);
+        towersByGrade[tower.grade].Remove(tower);
 
         // 오브젝트 삭제
         Destroy(tower.gameObject);

@@ -104,18 +104,14 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
             Die();
         }
     }
-
     public virtual void Die()
     {
         OnDeath?.Invoke(this);
         GameManager.Instance.Gold++;
         ObjectPool.Instance.ReturnToPool(this.gameObject, "Enemy");
-
-        if (!SpawnManager.ActiveEnemies.Contains(this))
-        {
-            SpawnManager.ActiveEnemies.Remove(this);
-        }
+        SpawnManager.ActiveEnemies.Remove(this); // 리스트에서 제거
     }
+
 
 
 }

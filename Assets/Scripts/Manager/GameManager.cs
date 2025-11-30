@@ -17,8 +17,8 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI lifeText;
-    [SerializeField] private RectTransform combineTowerButton;
     [SerializeField] private RectTransform gameoverUI;
+    [SerializeField] private RectTransform combineTowerButton;
 
     public int Gold
     {
@@ -93,7 +93,6 @@ public class GameManager : Singleton<GameManager>
 
             combineTowerButton.gameObject.SetActive(true);
             combineTowerButton.transform.position = tower.gameObject.transform.position;
-            //combineTowerButton.transform.position += new Vector3(0, 0.6f, 0);
         }
     }
 
@@ -122,6 +121,9 @@ public class GameManager : Singleton<GameManager>
     public void AddMiner()
     {
         GameObject go = ObjectPool.Instance.SpawnFromPool("Miner", nexus.transform.position);
+        float yRandom = Random.Range(-0.2f, 0.2f);
+        go.transform.position += new Vector3(0, yRandom, 0);
+
         Gold--;
     }
 }

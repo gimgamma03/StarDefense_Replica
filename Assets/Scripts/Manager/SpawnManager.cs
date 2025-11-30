@@ -1,4 +1,4 @@
-﻿using UnityEngine;          
+﻿using UnityEngine;
 using System.Collections;
 using TMPro;
 using System.Collections.Generic;
@@ -12,7 +12,6 @@ public class SpawnManager : Singleton<SpawnManager>
     [SerializeField] private EnemyStageDataSO _enemyStageData;
 
     private int _waveIndex = 0;
-    private int _aliveEnemies = 0;
     private int _maxWaveCount => _enemyStageData.waveDatas.Count;
 
     public static List<EnemyUnit> ActiveEnemies = new List<EnemyUnit>();
@@ -31,8 +30,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
             yield return StartCoroutine(SpawnEnemyInWave(currentWave));
 
-            // 여기서 모든 적이 죽을 때까지 기다림
-            yield return new WaitUntil(() => _aliveEnemies == 0);
+            // 모든 적이 죽을 때까지 기다림
+            yield return new WaitUntil(() => ActiveEnemies.Count == 0);
 
             _waveIndex++;
         }
@@ -54,9 +53,8 @@ public class SpawnManager : Singleton<SpawnManager>
             if (unit != null)
             {
                 unit.Initialize(randomData);
-                _aliveEnemies++; // 살아있는 적 카운트 증가
-                SpawnManager.ActiveEnemies.Add(unit);// 살아있는 적 목록 추가
-                unit.OnDeath += HandleEnemyDeath; // 이벤트 등록
+                ActiveEnemies.Add(unit);
+                unit.OnDeath += HandleEnemyDeath;
             }
 
             yield return new WaitForSeconds(waveData.spawnInterval);
@@ -70,10 +68,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
         if (unit != null)
         {
-            Debug.Log("fff");
-
             unit.Initialize();
-            _aliveEnemies++;
             ActiveEnemies.Add(unit);
             unit.OnDeath += HandleEnemyDeath;
         }
@@ -85,6 +80,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     private void HandleEnemyDeath(EnemyUnit unit)
     {
-        _aliveEnemies--; // 적이 죽으면 카운트 감소
+        ActiveEnemies.Remove(unit);
+        unit.OnDeath -= HandleEnemyDeath;
     }
 }

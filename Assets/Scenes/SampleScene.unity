@@ -3203,7 +3203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACE8\uB4DC : 0"
+  m_text: "\uACE8\uB4DC : 10"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d553ec2f99d3c7046ba4f36e2599b4e7, type: 2}
   m_sharedMaterial: {fileID: -2010665555680772711, guid: d553ec2f99d3c7046ba4f36e2599b4e7,
@@ -4061,13 +4061,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181863e83efe8694da9b02856615d260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
+  gold: 10
   life: 10
   wayPoint: {fileID: 1358887368}
   nexus: {fileID: 1262214918}
   mineral: {fileID: 957488721}
   goldText: {fileID: 1176306788}
   lifeText: {fileID: 623032868}
+  gameoverUI: {fileID: 1253207409}
   combineTowerButton: {fileID: 1882040682}
 --- !u!114 &1365024145
 MonoBehaviour:
