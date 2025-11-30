@@ -12,5 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5777b4e0910fa2499bb48c29f9f1515, type: 3}
   m_Name: StageData
   m_EditorClassIdentifier: 
-  waveData:
-  - {fileID: 11400000, guid: ce1628ac0564ebb4cb1c08e56000d815, type: 2}
+  waveDatas:
+  - spawnCount: 15
+    spawnInterval: 1
+  - spawnCount: 20
+    spawnInterval: 1.2
+  - spawnCount: 25
+    spawnInterval: 1.2
+  - spawnCount: 30
+    spawnInterval: 1.2
+  - spawnCount: 30
+    spawnInterval: 1.1
+  - spawnCount: 30
+    spawnInterval: 1
+  - spawnCount: 35
+    spawnInterval: 1
+  - spawnCount: 35
+    spawnInterval: 1
+  - spawnCount: 35
+    spawnInterval: 1
+  - spawnCount: 35
+    spawnInterval: 0.9

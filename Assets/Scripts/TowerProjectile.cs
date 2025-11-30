@@ -9,10 +9,17 @@ public class TowerProjectile : MonoBehaviour
 
     private Vector2 targetPosition;
 
-    public void Init(BaseTowerUnit tower)
+    public void CommanderProjectile(Commander commander)
+    {
+        damage = commander.attackDamage;
+        speed = commander.projectileSpeed;
+        targetPosition = commander._targetEnemy.transform.position;
+    }
+
+    public void TowerProejctile(BaseTowerUnit tower)
     {
         damage = tower.attackDamage;
-        targetPosition = tower._targetEnemy.transform.position; // 발사 순간 위치만 저장
+        targetPosition = tower._targetEnemy.transform.position;
     }
 
     void Update()
@@ -25,7 +32,7 @@ public class TowerProjectile : MonoBehaviour
 
         if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
-            ObjectPool.Instance.ReturnToPool(this.gameObject, "TowerProjectile");
+            ObjectPool.Instance.ReturnToPool(this.gameObject, "Projectile");
         }
     }
 
@@ -35,7 +42,7 @@ public class TowerProjectile : MonoBehaviour
         {
             EnemyUnit enemyUnit = collision.GetComponent<EnemyUnit>();
             enemyUnit.TakeDamage(5.0f);
-            ObjectPool.Instance.ReturnToPool(this.gameObject, "TowerProjectile");
+            ObjectPool.Instance.ReturnToPool(this.gameObject, "Projectile");
         }
     }
 }

@@ -109,6 +109,12 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
     {
         OnDeath?.Invoke(this);
         ObjectPool.Instance.ReturnToPool(this.gameObject, "Enemy");
+
+        if (!SpawnManager.ActiveEnemies.Contains(this))
+        {
+            SpawnManager.ActiveEnemies.Remove(this);
+        }
     }
+
 
 }

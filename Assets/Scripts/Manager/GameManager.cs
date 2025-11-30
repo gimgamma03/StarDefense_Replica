@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class GameManager : Singleton<GameManager>
 {
+    public int life = 10;
     public WayPoint wayPoint;
     private Tilemap tilemap;
     private BaseTowerUnit beforeSearchTower;
 
+    [SerializeField] private TextMeshProUGUI lifeText;
     [SerializeField] private RectTransform combineTowerButton;
 
     // Start is called before the first frame update
@@ -83,4 +86,15 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void OnEnemyReachedGoal()
+    {
+        life--;
+
+        if (life == 0)
+        {
+            //Game Over
+        }
+
+        lifeText.text = $"Life\n{life} / {10}";
+    }
 }

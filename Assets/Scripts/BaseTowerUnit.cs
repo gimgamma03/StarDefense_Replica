@@ -119,7 +119,7 @@ public class BaseTowerUnit : MonoBehaviour, IAttackable
             return;
         }
 
-        GameObject tp = ObjectPool.Instance.SpawnFromPool("TowerProjectile", transform.position);
+        GameObject tp = ObjectPool.Instance.SpawnFromPool("Projectile", transform.position);
 
         if (tp == null)
         {
@@ -127,7 +127,7 @@ public class BaseTowerUnit : MonoBehaviour, IAttackable
         }
 
         TowerProjectile towerProjectile = tp.GetComponent<TowerProjectile>();
-        towerProjectile.Init(this);
+        towerProjectile.TowerProejctile(this);
     }
 
     public void OnRangeVisualizer()
