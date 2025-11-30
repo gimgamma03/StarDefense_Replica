@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 public class TowerManager : Singleton<TowerManager>
 {
-    [SerializeField] private TowerDatasSO towerDatas;   // SO 연결
-    [SerializeField] private GameObject towerPrefab;    // 기본 타워 프리팹
     [SerializeField] private Tilemap tilemap;
+    [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private TowerDatasSO towerDatas;
 
     // 좌표별 타워 관리
     private Dictionary<Vector3Int, BaseTowerUnit> towersByCell = new Dictionary<Vector3Int, BaseTowerUnit>();
@@ -100,19 +100,21 @@ public class TowerManager : Singleton<TowerManager>
         }
 
         // 선택된 타워 + 다른 하나
-        BaseTowerUnit towerA = baseTower;
-        BaseTowerUnit towerB = sameTowers.First(t => t != baseTower);
+        var towerA = baseTower;
+        var towerB = sameTowers.Find(t => t != baseTower);
 
-        Vector3Int cellA = towersByCell.First(kv => kv.Value == towerA).Key;
-        Vector3Int cellB = towersByCell.First(kv => kv.Value == towerB).Key;
+        // 두 타워 위치 찾기 (딕셔너리에서 타워 밸류에 연결되 키값 (타일 셀 값) 찾기)
+        var cellA = towersByCell.FirstOrDefault(kv => kv.Value == towerA).Key;
+        var cellB = towersByCell.FirstOrDefault(kv => kv.Value == towerB).Key;
 
         // 두 타워 제거
         RemoveTower(cellA);
         RemoveTower(cellB);
 
         // 상위 등급 데이터 찾기
-        TowerGradeData nextGradeData = towerDatas.towerGrades
-            .FirstOrDefault(g => g.grade == currentGrade + 1);
+        var nextGradeData = towerDatas.towerGrades
+            .Find(g => g.grade == currentGrade + 1);
+
 
         if (nextGradeData == null || nextGradeData.towers.Count == 0)
         {
