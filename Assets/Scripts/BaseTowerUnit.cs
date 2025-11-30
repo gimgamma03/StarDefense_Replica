@@ -125,7 +125,7 @@ public class BaseTowerUnit : MonoBehaviour, IAttackable
         }
 
         TowerProjectile towerProjectile = tp.GetComponent<TowerProjectile>();
-        towerProjectile.Init(_targetEnemy.transform);
+        towerProjectile.Init(this);
     }
 
     public void OnRangeVisualizer()

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyUnit : MonoBehaviour, IMovable
+public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
 {
     //인스펙터 확인용 퍼블릭
     public List<Transform> wayPointList;
@@ -13,12 +13,12 @@ public class EnemyUnit : MonoBehaviour, IMovable
 
     Vector2 moveDirection;
 
-
+    public float hp;
+    public float maxHp;
     public float moveSpeed;
     public string enemyName;
 
-    public event Action OnDeath;
-
+    public event Action<EnemyUnit> OnDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,8 @@ public class EnemyUnit : MonoBehaviour, IMovable
 
     public void Initialize()
     {
+        hp = maxHp;
+
         wayPointList = GameManager.Instance.wayPoint.GetWayPointList();
 
         SetMoveTarget();
@@ -87,9 +89,20 @@ public class EnemyUnit : MonoBehaviour, IMovable
         }
     }
 
+    public void TakeDamage(float amount)
+    {
+        hp -= amount;
+
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+
     public void Die()
     {
-        OnDeath?.Invoke();
+        OnDeath?.Invoke(this);
+        ObjectPool.Instance.ReturnToPool(this.gameObject, enemyName);
     }
 
 }

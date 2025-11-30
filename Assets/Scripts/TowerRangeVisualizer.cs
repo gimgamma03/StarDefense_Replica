@@ -44,6 +44,7 @@ public class TowerRangeVisualizer : MonoBehaviour
             if (!_enemiesInRange.Contains(enemyUnit))
             {
                 _enemiesInRange.Add(enemyUnit);
+                enemyUnit.OnDeath += RemoveEnemyInRange;
             }
         }
     }
@@ -55,7 +56,16 @@ public class TowerRangeVisualizer : MonoBehaviour
             if (_enemiesInRange.Contains(enemyUnit))
             {
                 _enemiesInRange.Remove(enemyUnit);
+                enemyUnit.OnDeath -= RemoveEnemyInRange;
             }
+        }
+    }
+
+    private void RemoveEnemyInRange(EnemyUnit dieEnemy)
+    {
+        if (_enemiesInRange.Contains(dieEnemy))
+        {
+            _enemiesInRange.Remove(dieEnemy);
         }
     }
 }

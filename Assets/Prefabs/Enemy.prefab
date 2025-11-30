@@ -103,6 +103,8 @@ MonoBehaviour:
   wayPointList: []
   targetPos: {fileID: 0}
   targetListIndex: 0
+  hp: 10
+  maxHp: 10
   moveSpeed: 0.5
   enemyName: Enemy01
 --- !u!61 &6286245796922140169

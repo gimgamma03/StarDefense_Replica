@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TowerProjectile : MonoBehaviour
 {
-    private Vector2 targetPosition;
     public float speed = 5f;
+    private float damage = 1.0f;
 
-    public void Init(Transform target)
+    private Vector2 targetPosition;
+
+    public void Init(BaseTowerUnit tower)
     {
-        targetPosition = target.position; // 발사 순간 위치만 저장
+        damage = tower.attackDamage;
+        targetPosition = tower._targetEnemy.transform.position; // 발사 순간 위치만 저장
     }
 
     void Update()
@@ -30,7 +33,8 @@ public class TowerProjectile : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            //Debug.Log("적 맞춤");
+            EnemyUnit enemyUnit = collision.GetComponent<EnemyUnit>();
+            enemyUnit.TakeDamage(5.0f);
             ObjectPool.Instance.ReturnToPool(this.gameObject, "TowerProjectile");
         }
     }

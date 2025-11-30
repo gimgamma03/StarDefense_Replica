@@ -17,25 +17,25 @@ MonoBehaviour:
     towers:
     - grade: 1
       towerName: Boo01
-      damage: 1
+      damage: 5
       range: 2
       attackDelay: 1.2
       towerImage: {fileID: 21300000, guid: e420c5bc93cb2604695a893500c897e3, type: 3}
     - grade: 1
       towerName: Boo02
-      damage: 1
+      damage: 5
       range: 2
       attackDelay: 1.2
       towerImage: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
     - grade: 1
       towerName: Boo03
-      damage: 1
+      damage: 5
       range: 2
       attackDelay: 1.2
       towerImage: {fileID: 21300000, guid: 70a77abda853dd941a0c8debf1de9b04, type: 3}
     - grade: 1
       towerName: Boo03
-      damage: 1
+      damage: 5
       range: 2
       attackDelay: 1.2
       towerImage: {fileID: 21300000, guid: 6fc27c9d7fc2d9448af6851bf935e6d2, type: 3}
