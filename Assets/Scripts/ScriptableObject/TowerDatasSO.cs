@@ -19,8 +19,8 @@ public class TowerData
 {
     public int grade;
     public string towerName;
-    public float damage;
     public float range;
     public float attackDelay;
+    public float attackDamage;
     public Sprite towerImage;
 }

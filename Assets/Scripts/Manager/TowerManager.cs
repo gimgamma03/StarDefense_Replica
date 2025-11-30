@@ -46,7 +46,7 @@ public class TowerManager : Singleton<TowerManager>
         BaseTowerUnit tower = towerObj.GetComponent<BaseTowerUnit>();
         if (tower != null)
         {
-            tower.Init(selectedData);
+            tower.Initialize(selectedData);
 
             // 좌표 등록
             towersByCell[cellPos] = tower;
@@ -60,8 +60,6 @@ public class TowerManager : Singleton<TowerManager>
             // 타일 상태 갱신
             TileMapManager.Instance.SetTowerPlaced(cellPos, true);
         }
-
-        Debug.Log($"{selectedData.towerName} (등급 {selectedData.grade}) 소환 완료!");
     }
 
     public void RemoveTower(Vector3Int cellPos)

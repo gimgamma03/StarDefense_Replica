@@ -19,11 +19,17 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
     public string enemyName;
 
     public event Action<EnemyUnit> OnDeath;
+    private EnemyData enemyData;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Initialize();
     }
 
     // Update is called once per frame
@@ -37,20 +43,17 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
         Move();
     }
 
-    /*void OnEnable()
+    public void Initialize(EnemyData data)
     {
-        if (GameManager.Instance != null && GameManager.Instance.wayPoint != null)
-        {
-            wayPointList = GameManager.Instance.wayPoint.GetWayPointList();
-            targetListIndex = 0;
-            SetMoveTarget();
-        }
-    }*/
+        enemyData = data;
 
-    public void Initialize()
-    {
+        maxHp = enemyData.maxHp;
+        moveSpeed = enemyData.moveSpeed;
+        enemyName = enemyData.enemyName;
+        spriteRenderer.sprite = enemyData.enemySprite;
+
         hp = maxHp;
-
+        targetListIndex = 0;
         wayPointList = GameManager.Instance.wayPoint.GetWayPointList();
 
         SetMoveTarget();
@@ -64,16 +67,19 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
 
         if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
         {
-            // 좌우 방향
+            //좌우 방향
             moveDirection = new Vector3(Mathf.Sign(diff.x), 0, 0);
+
+            //스프라이트 좌우 반전
+            spriteRenderer.flipX = (diff.x < 0); // 왼쪽이면 flipX = true
         }
         else
         {
-            // 상하 방향
+            //상하 방향
             moveDirection = new Vector3(0, Mathf.Sign(diff.y), 0);
         }
-
     }
+
 
     public void Move()
     {
@@ -102,7 +108,7 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
     public void Die()
     {
         OnDeath?.Invoke(this);
-        ObjectPool.Instance.ReturnToPool(this.gameObject, enemyName);
+        ObjectPool.Instance.ReturnToPool(this.gameObject, "Enemy");
     }
 
 }

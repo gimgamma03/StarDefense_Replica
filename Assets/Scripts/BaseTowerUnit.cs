@@ -36,10 +36,12 @@ public class BaseTowerUnit : MonoBehaviour, IAttackable
         
     }
 
-    public void Init(TowerData towerData)
+    public void Initialize(TowerData towerData)
     {
         grade = towerData.grade;
         towerName = towerData.towerName;
+        attackDelay = towerData.attackDelay;
+        attackDamage = towerData.attackDamage;
         towerImageRenderer.sprite = towerData.towerImage;
 
         OffRangeVisualizer();
