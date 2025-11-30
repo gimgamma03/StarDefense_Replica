@@ -17,51 +17,103 @@ MonoBehaviour:
     towers:
     - grade: 1
       towerName: Boo01
-      damage: 5
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: e420c5bc93cb2604695a893500c897e3, type: 3}
     - grade: 1
       towerName: Boo02
-      damage: 5
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
     - grade: 1
       towerName: Boo03
-      damage: 5
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: 70a77abda853dd941a0c8debf1de9b04, type: 3}
     - grade: 1
       towerName: Boo03
-      damage: 5
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: 6fc27c9d7fc2d9448af6851bf935e6d2, type: 3}
   - grade: 2
     towers:
     - grade: 2
-      towerName: Boo01
-      damage: 1
+      towerName: Boo05
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
     - grade: 2
-      towerName: Boo02
-      damage: 1
+      towerName: Boo06
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: da09804303305f542a686824630e7269, type: 3}
     - grade: 2
-      towerName: Boo03
-      damage: 1
+      towerName: Boo07
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: b97c91e8b348f3f4ebdc11f5c82182cd, type: 3}
     - grade: 2
-      towerName: Boo03
-      damage: 1
+      towerName: Boo08
       range: 2
       attackDelay: 1.2
+      attackDamage: 0
       towerImage: {fileID: 21300000, guid: b8fb302c5768e334ca82005f50e58121, type: 3}
+  - grade: 3
+    towers:
+    - grade: 3
+      towerName: Boo09
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
+    - grade: 3
+      towerName: Boo10
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: 3e4fcc84a0ac95b429c56452575f6021, type: 3}
+    - grade: 3
+      towerName: Boo11
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
+    - grade: 3
+      towerName: Boo12
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
+  - grade: 4
+    towers:
+    - grade: 4
+      towerName: Boo13
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: 0e123cfdc54a3ca4684816a34167a566, type: 3}
+    - grade: 4
+      towerName: Boo14
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: db427fab3e94daf4caa704d9314a77a1, type: 3}
+    - grade: 4
+      towerName: Boo15
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: db427fab3e94daf4caa704d9314a77a1, type: 3}
+    - grade: 4
+      towerName: Boo16
+      range: 2
+      attackDelay: 1.2
+      attackDamage: 0
+      towerImage: {fileID: 21300000, guid: 970324311431c794ca338446ea889948, type: 3}

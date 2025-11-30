@@ -6,13 +6,33 @@ using UnityEngine.Tilemaps;
 
 public class GameManager : Singleton<GameManager>
 {
+    public int gold = 0;
     public int life = 10;
+
     public WayPoint wayPoint;
     private Tilemap tilemap;
+    public GameObject nexus;
+    public GameObject mineral;
     private BaseTowerUnit beforeSearchTower;
 
+    [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI lifeText;
     [SerializeField] private RectTransform combineTowerButton;
+    [SerializeField] private RectTransform gameoverUI;
+
+    public int Gold
+    {
+        get
+        {
+            return gold;
+        }
+
+        set
+        {
+            gold = value;
+            goldText.text = $"°ñµå : {gold}";
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +93,7 @@ public class GameManager : Singleton<GameManager>
 
             combineTowerButton.gameObject.SetActive(true);
             combineTowerButton.transform.position = tower.gameObject.transform.position;
-            combineTowerButton.transform.position += new Vector3(0, 0.6f, 0);
+            //combineTowerButton.transform.position += new Vector3(0, 0.6f, 0);
         }
     }
 
@@ -92,9 +112,16 @@ public class GameManager : Singleton<GameManager>
 
         if (life == 0)
         {
-            //Game Over
+            Time.timeScale = 0.01f;
+            gameoverUI.gameObject.SetActive(true);
         }
 
         lifeText.text = $"Life\n{life} / {10}";
+    }
+
+    public void AddMiner()
+    {
+        GameObject go = ObjectPool.Instance.SpawnFromPool("Miner", nexus.transform.position);
+        Gold--;
     }
 }

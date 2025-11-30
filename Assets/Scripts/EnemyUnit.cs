@@ -108,6 +108,7 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
     public virtual void Die()
     {
         OnDeath?.Invoke(this);
+        GameManager.Instance.Gold++;
         ObjectPool.Instance.ReturnToPool(this.gameObject, "Enemy");
 
         if (!SpawnManager.ActiveEnemies.Contains(this))

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6253431985117864915}
   - component: {fileID: 5593599335555056112}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,7 @@ MonoBehaviour:
   attackDelay: 1.2
   attackDamage: 1
   lastAttackTime: 0
+  towerName: 
   _targetEnemy: {fileID: 0}
 --- !u!58 &211016141926864388
 CircleCollider2D:
@@ -172,7 +173,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!1 &4656714711458282596
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +307,7 @@ GameObject:
   - component: {fileID: 7760137435853508000}
   - component: {fileID: 7223336026508867625}
   - component: {fileID: 459016944392844124}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeVisualizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
