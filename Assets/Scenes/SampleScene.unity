@@ -2233,10 +2233,10 @@ RectTransform:
   - {fileID: 918329626}
   m_Father: {fileID: 144807772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -100, y: 205}
-  m_SizeDelta: {x: 80, y: 40}
+  m_SizeDelta: {x: -204, y: -468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884133690
 MonoBehaviour:
@@ -4061,7 +4061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181863e83efe8694da9b02856615d260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 10
+  gold: 0
   life: 10
   wayPoint: {fileID: 1358887368}
   nexus: {fileID: 1262214918}
