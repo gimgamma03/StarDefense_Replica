@@ -59,7 +59,7 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
         SetMoveTarget();
     }
 
-    private void SetMoveTarget()
+    public void SetMoveTarget()
     {
         targetPos = wayPointList[targetListIndex];
 
@@ -105,7 +105,7 @@ public class EnemyUnit : MonoBehaviour, IMovable, IDamageable
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
         OnDeath?.Invoke(this);
         ObjectPool.Instance.ReturnToPool(this.gameObject, "Enemy");

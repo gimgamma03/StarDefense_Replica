@@ -8,6 +8,7 @@ public class SpawnManager : Singleton<SpawnManager>
 {
     [SerializeField] private EnemyDataSO _enemyData;
     [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private GameObject bountyEnemyPrefab;
     [SerializeField] private EnemyStageDataSO _enemyStageData;
 
     private int _waveIndex = 0;
@@ -59,6 +60,26 @@ public class SpawnManager : Singleton<SpawnManager>
             }
 
             yield return new WaitForSeconds(waveData.spawnInterval);
+        }
+    }
+
+    public void SpawnBountyEnemy()
+    {
+        GameObject go = ObjectPool.Instance.SpawnFromPool("BountyEnemy", transform.position);
+        BountyEnemyUnit unit = go.GetComponent<BountyEnemyUnit>();
+
+        if (unit != null)
+        {
+            Debug.Log("fff");
+
+            unit.Initialize();
+            _aliveEnemies++;
+            ActiveEnemies.Add(unit);
+            unit.OnDeath += HandleEnemyDeath;
+        }
+        else
+        {
+            Debug.LogError("BountyEnemyUnit 컴포넌트를 찾을 수 없습니다!");
         }
     }
 

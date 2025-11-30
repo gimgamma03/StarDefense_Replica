@@ -19,24 +19,9 @@ public class TileMapManager : Singleton<TileMapManager>
     //타일 별 타워 설치 여부 저장 데이터
     Dictionary<Vector3Int, bool> towerPlaced = new Dictionary<Vector3Int, bool>();
 
-
-    void Start()
-    {
-        //ApplyDepth();
-    }
-
     private void Update()
     {
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPos = tilemap.WorldToCell(mouseWorldPos);
-
-            TileBase tile = tilemap.GetTile(cellPos);
-            Debug.Log("클릭한 타일: " + tile);
-
-            
-        }*/
+        
     }
 
     //타일 수리
@@ -128,20 +113,5 @@ public class TileMapManager : Singleton<TileMapManager>
     public void SetTowerPlaced(Vector3Int cellPos, bool placed)
     {
         towerPlaced[cellPos] = placed;
-    }
-
-
-    void ApplyDepth()
-    {
-        foreach (var pos in tilemap.cellBounds.allPositionsWithin)
-        {
-            if (!tilemap.HasTile(pos)) continue;
-
-            tilemap.SetTileFlags(pos, TileFlags.None); // Transform 변경 허용
-            float zOffset = -pos.y * 1f; // 테스트용으로 크게 줘보기
-            tilemap.SetTransformMatrix(pos, Matrix4x4.TRS(
-                new Vector3(0, 0, zOffset), Quaternion.identity, Vector3.one));
-        }
-
     }
 }
