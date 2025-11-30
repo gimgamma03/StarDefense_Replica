@@ -39,11 +39,10 @@ public class TowerManager : Singleton<TowerManager>
         // Å¸ÀÏ Áß¾Ó ÁÂÇ¥
         Vector3 worldPos = tilemap.GetCellCenterWorld(cellPos);
 
-        // ÇÁ¸®ÆÕ »ý¼º
-        GameObject towerObj = Instantiate(towerPrefab, worldPos, Quaternion.identity);
+        GameObject go = ObjectPool.Instance.SpawnFromPool("Tower", worldPos);
 
         // TowerUnit ÃÊ±âÈ­
-        BaseTowerUnit tower = towerObj.GetComponent<BaseTowerUnit>();
+        BaseTowerUnit tower = go.GetComponent<BaseTowerUnit>();
         if (tower != null)
         {
             tower.Initialize(selectedData);

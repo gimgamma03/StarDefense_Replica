@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: StageData
   m_EditorClassIdentifier: 
   waveDatas:
-  - spawnCount: 15
-    spawnInterval: 1
-  - spawnCount: 20
-    spawnInterval: 1.2
-  - spawnCount: 25
-    spawnInterval: 1.2
-  - spawnCount: 30
-    spawnInterval: 1.2
-  - spawnCount: 30
-    spawnInterval: 1.1
-  - spawnCount: 30
-    spawnInterval: 1
-  - spawnCount: 35
-    spawnInterval: 1
-  - spawnCount: 35
-    spawnInterval: 1
-  - spawnCount: 35
-    spawnInterval: 1
-  - spawnCount: 35
+  - spawnCount: 10
     spawnInterval: 0.9
+  - spawnCount: 12
+    spawnInterval: 0.9
+  - spawnCount: 14
+    spawnInterval: 0.9
+  - spawnCount: 16
+    spawnInterval: 0.8
+  - spawnCount: 18
+    spawnInterval: 0.8
+  - spawnCount: 20
+    spawnInterval: 0.7
+  - spawnCount: 22
+    spawnInterval: 0.7
+  - spawnCount: 24
+    spawnInterval: 0.7
+  - spawnCount: 26
+    spawnInterval: 0.6
+  - spawnCount: 28
+    spawnInterval: 0.6
